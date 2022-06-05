@@ -17,8 +17,13 @@ function printInfo {
 	echo -e "\033[32m[$(getCurrentTime)] : $1\033[0m"
 }
 
-rm -rf $TARGET_DIR
-printInfo "删除.vim目录 success"
+if [ -d $TARGET_DIR ]; then
+	printInfo "检测到已存在目录，将备份原有配置至 $TARGET_DIR.bak"
+	mv $TARGET_DIR $TARGET_DIR.bak
+	printInfo "备份完成"
+else
+	printInfo "未检测到已存在目录，将直接克隆 $GITHUB_URL 到 $TARGET_DIR"
+fi
 
 printInfo "开始克隆.vim"
 git clone $GITHUB_PROXY/$GITHUB_URL $TARGET_DIR
