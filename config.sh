@@ -20,7 +20,7 @@ function printInfo {
 # 判断是否已经安装了vim，如未安装则安装vim
 if [ -z $(which vim) ]; then
 	printInfo "vim未安装，先安装vim"
-	yum install -y vim || apt-get install vim || apk --no-cache add -f bash curl vim || pacman -S --noconfirm vim
+	yum install -y vim || apk --no-cache add -f bash curl vim git || apt-get install vim || pacman -S --noconfirm vim
 	if [ -z $(which vim) ]; then
 		printInfo "vim安装失败，请手动安装vim"
 		exit 1
