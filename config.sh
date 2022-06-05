@@ -17,6 +17,13 @@ function printInfo {
 	echo -e "\033[32m[$(getCurrentTime)] : $1\033[0m"
 }
 
+# 判断是否为Alpine系统
+if [ -e /etc/alpine-release ]; then
+	printInfo "检测到当前系统为Alpine系统，换源中..."
+	sed -i 's/dl-cdn.alpinelinux.org/mirrors.tuna.tsinghua.edu.cn/g' /etc/apk/repositories
+	printInfo "换源完成"
+fi
+
 # 判断是否已经安装了vim，如未安装则安装vim
 if [ -z $(which vim) ]; then
 	printInfo "vim未安装，先安装vim"
