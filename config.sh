@@ -25,4 +25,4 @@ git clone $GITHUB_PROXY/$GITHUB_URL $TARGET_DIR
 printInfo "克隆.vim success"
 
 ln -sf $TARGET_DIR/.vimrc $HOME/.vimrc
-printInfo "Install vimrc success"
+printInfo "Config .vimrc success"
