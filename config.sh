@@ -17,6 +17,20 @@ function printInfo {
 	echo -e "\033[32m[$(getCurrentTime)] : $1\033[0m"
 }
 
+# 判断是否已经安装了vim，如未安装则安装vim
+if [ -z $(which vim) ]; then
+	printInfo "vim未安装，先安装vim"
+	yum install -y vim || apt-get install vim || apk --no-cache add -f bash vim || pacman -S --noconfirm vim
+	if [ -z $(which vim) ]; then
+		printInfo "vim安装失败，请手动安装vim"
+		exit 1
+	else
+		printInfo "vim安装成功"
+	fi
+else
+	printInfo "vim已安装"
+fi
+
 if [ -d $TARGET_DIR ]; then
 	printInfo "检测到已存在目录，将备份原有配置至 $TARGET_DIR.bak"
 	mv $TARGET_DIR $TARGET_DIR.bak
