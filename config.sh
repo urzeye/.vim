@@ -20,7 +20,7 @@ function printInfo {
 # 判断是否已经安装了vim，如未安装则安装vim
 if [ -z $(which vim) ]; then
 	printInfo "vim未安装，先安装vim"
-	yum install -y vim || apt-get install vim || apk --no-cache add -f bash vim || pacman -S --noconfirm vim
+	yum install -y vim || apt-get install vim || apk --no-cache add -f bash curl vim || pacman -S --noconfirm vim
 	if [ -z $(which vim) ]; then
 		printInfo "vim安装失败，请手动安装vim"
 		exit 1
@@ -36,7 +36,7 @@ if [ -d $TARGET_DIR ]; then
 	mv $TARGET_DIR $TARGET_DIR.bak
 	printInfo "备份完成"
 else
-	printInfo "未检测到已存在目录，将直接克隆 $GITHUB_URL 到 $TARGET_DIR"
+	printInfo "未检测到已存在目录"
 fi
 
 printInfo "开始克隆.vim"
