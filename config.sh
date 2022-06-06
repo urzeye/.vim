@@ -72,4 +72,5 @@ git clone $GITHUB_PROXY/$GITHUB_URL $TARGET_DIR
 printInfo "克隆.vim success"
 
 ln -sf $TARGET_DIR/.vimrc $HOME/.vimrc
+ln -sf $TARGET_DIR/.tmux.conf $HOME/.tmux.conf
 printInfo "Config .vimrc success"
