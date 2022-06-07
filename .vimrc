@@ -1,7 +1,17 @@
 " 配色方案 "
-syntax enable
-set background=dark
-colorscheme solarized
+" solarized "
+"syntax enable
+"set background=dark
+"colorscheme solarized
+
+" molokai "
+let g:rehash256 = 1 
+let g:molokai_original = 1 
+highlight NonText guibg=#060606 
+highlight Folded  guibg=#0A0A0A guifg=#9090D0 
+set t_Co=256 
+set background=dark 
+colorscheme  molokai 
 
 " 开启缩进 "
 filetype plugin indent on
@@ -82,3 +92,4 @@ set undodir=~/.vim-config/undo_dirs
 
 " 开启剪切板 "
 " set clipboard=unnamedplus
+
