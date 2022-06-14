@@ -73,4 +73,10 @@ printInfo "克隆.vim success"
 
 ln -sf $TARGET_DIR/.vimrc $HOME/.vimrc
 ln -sf $TARGET_DIR/.tmux.conf $HOME/.tmux.conf
-printInfo "Config .vimrc success"
+printInfo "创建软链接 success"
+
+echo "export EDITOR=vim" >> ~/.bashrc
+source ~/.bashrc
+printInfo "设置默认编辑器为vim success"
+
+printInfo "config .vimrc success"
