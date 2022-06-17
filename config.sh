@@ -75,8 +75,10 @@ ln -sf $TARGET_DIR/.vimrc $HOME/.vimrc
 ln -sf $TARGET_DIR/.tmux.conf $HOME/.tmux.conf
 printInfo "创建软链接 success"
 
-echo "export EDITOR=vim" >> ~/.bashrc
-source ~/.bashrc
-printInfo "设置默认编辑器为vim success"
+if [ `grep EDITOR=vi ~/.bashrc | wc -l` -lt 1 ]; then
+	echo "export EDITOR=vim" >> ~/.bashrc
+	source ~/.bashrc
+	printInfo "设置默认编辑器为vim success"
+fi
 
 printInfo "config .vimrc success"
