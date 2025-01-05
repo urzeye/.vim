@@ -5,7 +5,7 @@
 set -e
 
 TARGET_DIR=$HOME/.vim
-GITHUB_PROXY=https://ghproxy.com
+GITHUB_PROXY=
 GITHUB_URL=https://github.com/urzeye/.vim.git
 
 # 获取当前时间
