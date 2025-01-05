@@ -68,7 +68,7 @@ else
 fi
 
 printInfo "开始克隆.vim"
-git clone $GITHUB_PROXY/$GITHUB_URL $TARGET_DIR
+git clone $GITHUB_URL $TARGET_DIR
 printInfo "克隆.vim success"
 
 ln -sf $TARGET_DIR/.vimrc $HOME/.vimrc
